@@ -138,7 +138,7 @@ module.exports = msgBot = async (client, message) => {
                 cadastrandoVip() // função de cadastro
                 break;
             case 'menu':
-                const img = client.getProfilePicFromServer(author)
+               // const img = client.getProfilePicFromServer(author)
 
                 
                 let text = `
