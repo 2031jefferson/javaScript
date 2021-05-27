@@ -155,7 +155,7 @@ _Status VIP_: *${verificarCadastroVip()}*
 \`\`\`Envie um das opções acima destacado em negrito para mais detalhes\`\`\`  `
 
                // client.reply(from, text, id)
-               client.sendImageFromBase64(from, './media/capa.jpg', '', text)
+               client.sendImage(from, './media/capa.jpg', '', text)
                 break;
             case 'message':
                 let txt1 = `
