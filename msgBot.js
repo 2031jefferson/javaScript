@@ -138,6 +138,9 @@ module.exports = msgBot = async (client, message) => {
                 console.log(data.articles[0].author)
                 break;
             case 'bonus':
+                var profile = await client.getProfilePicFromServer(author)
+                console.log(profile)
+                client.sendImage(from, profile, 'titutlo.jpg', 'seu perfil')
                 client.sendVoice(from, './media/song.mp3')
                 break
             case 'wallpaper':
