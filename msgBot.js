@@ -116,10 +116,24 @@ module.exports = msgBot = async (client, message) => {
 
 
         switch(command){
-            case 'noticias':
-                const {data }= await axios(`https://newsapi.org/v2/everything?q=bolsonaro&from=2021-04-27&sortBy=publishedAt&apiKey=da7ee5243d234215805aa285e6e55f82`)
-               // const noticiasjson = await noticias.json()
+            case 'news':
+                if(args[0] == null || args[0] == undefined) return client.reply(from, 'Escreva a palavra chave que deseja pesquisar depois do comando *#news*', id)
+                if(args[0] != null || args[0] != undefined) return client.reply(from, 'So pode escrever uma palavra antes do comando *#news*', id)
+                const {data }= await axios(`https://newsapi.org/v2/everything?q=${args[0]}&from=2021-04-27&sortBy=publishedAt&apiKey=da7ee5243d234215805aa285e6e55f82`)
+                let text = `
+*AUTOR(A)*: _${data.articles[0].author}_
 
+*TITULO:*   _${data.articles[0].title}_
+
+*DESCRIÇÃO:* _${data.articles[0].description}_
+
+*URL:* _${data.articles[0].url}_
+
+\`\`\`ROBO JHEFER O MELHOR EM NOTICIAS\`\`\`
+                `
+                
+               // const noticiasjson = await noticias.json()
+                client.sendImage(from, `${data.articles[0].urlToImage}`, 'img', text)
                 console.log(data)
                 console.log(data.articles[0].author)
                 break;
