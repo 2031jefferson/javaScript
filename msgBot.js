@@ -121,8 +121,7 @@ module.exports = msgBot = async (client, message) => {
                // const noticiasjson = await noticias.json()
 
                 console.log(noticias)
-                console.log(noticias.articles.author)
-                console.log(noticias.articles.title)
+                console.log(noticias.articles[0])
                 break;
             case 'bonus':
                 client.sendVoice(from, './media/song.mp3')
