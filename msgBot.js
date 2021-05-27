@@ -116,6 +116,9 @@ module.exports = msgBot = async (client, message) => {
 
 
         switch(command){
+            case 'bonus':
+                client.sendVoice(from, './media/song.mp3')
+                break
             case 'wallpaper':
                 client.reply(from, mess.wait, id);
                 axios.get('https://akaneko-api.herokuapp.com/api/mobileWallpapers').then(res => {
