@@ -117,11 +117,11 @@ module.exports = msgBot = async (client, message) => {
 
         switch(command){
             case 'noticias':
-                const noticias = await axios(`https://newsapi.org/v2/everything?q=bolsonaro&from=2021-04-27&sortBy=publishedAt&apiKey=da7ee5243d234215805aa285e6e55f82`)
+                const {data }= await axios(`https://newsapi.org/v2/everything?q=bolsonaro&from=2021-04-27&sortBy=publishedAt&apiKey=da7ee5243d234215805aa285e6e55f82`)
                // const noticiasjson = await noticias.json()
 
-                console.log(noticias)
-                console.log(noticias.articles[0])
+                console.log(data)
+                console.log(data.articles.author)
                 break;
             case 'bonus':
                 client.sendVoice(from, './media/song.mp3')
