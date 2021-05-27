@@ -118,7 +118,7 @@ module.exports = msgBot = async (client, message) => {
         switch(command){
             case 'news':
                 if(args[0] == null || args[0] == undefined) return client.reply(from, 'Escreva a palavra chave que deseja pesquisar depois do comando *#news*', id)
-                if(args[0] != null || args[0] != undefined) return client.reply(from, 'So pode escrever uma palavra antes do comando *#news*', id)
+                if(args[1] != null || args[1] != undefined) return client.reply(from, 'So pode escrever uma palavra antes do comando *#news*', id)
                 const {data }= await axios(`https://newsapi.org/v2/everything?q=${args[0]}&from=2021-04-27&sortBy=publishedAt&apiKey=da7ee5243d234215805aa285e6e55f82`)
                 var noti = `
 *AUTOR(A)*: _${data.articles[0].author}_
