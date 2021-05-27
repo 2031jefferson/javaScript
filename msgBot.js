@@ -106,12 +106,12 @@ module.exports = msgBot = async (client, message) => {
         })
         var regExp1 = /(Http:\/\/)|(Https:\/\/)|(\.com)/gi
         var status = regExp1.test(message.body)
-        if(status == true){
-            client.reply(from, `Link detectado`, id)
-            remover();
-        }
-        function remover(){
-        await client.removeParticipant(from, author)
+        remover();
+        async function remover(){
+            if(status == true){
+                client.reply(from, `Link detectado`, id)
+                await client.removeParticipant(from, author)
+            }
         }
 
 
