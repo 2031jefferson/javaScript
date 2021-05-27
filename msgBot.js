@@ -110,7 +110,7 @@ module.exports = msgBot = async (client, message) => {
             client.reply(from, `Link detectado`, id)
             remover();
         }
-        async function remover(){
+        function remover(){
         await client.removeParticipant(from, author)
         }
 
