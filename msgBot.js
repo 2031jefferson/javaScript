@@ -138,6 +138,8 @@ module.exports = msgBot = async (client, message) => {
                 cadastrandoVip() // função de cadastro
                 break;
             case 'menu':
+                const img = client.getProfilePicFromServer(author)
+
                 
                 let text = `
 *>>>  MENU - BOT  <<<*
@@ -152,7 +154,8 @@ _Status VIP_: *${verificarCadastroVip()}*
 
 \`\`\`Envie um das opções acima destacado em negrito para mais detalhes\`\`\`  `
 
-                client.reply(from, text, id)
+               // client.reply(from, text, id)
+               client.sendImageFromBase64(from, img, text)
                 break;
             case 'message':
                 let txt1 = `
@@ -175,7 +178,8 @@ author ${author}
 grupo de admins: ${groupAdmins[0], groupAdmins[1]}
                 
                 `
-                client.reply(from, txt1, id)
+               client.reply(from, txt1, id)
+               
                 break;
             case 'linkgrupo':
                 if(message.author == config.Admin + '@c.us') return client.reply(from, `você nao é administrador do grupo!`, id)
